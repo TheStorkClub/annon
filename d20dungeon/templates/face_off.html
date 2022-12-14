@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Battle ground
+{% endblock %}
+{% block main %}
+<body class="body-bg-battle"
+  <div>
+    <div>
+        <div class="col-md-4" style="float:left; width:40%; padding-right: 70px; padding-left: 70px;">
+          <div class="container-fluid">
+            {% for names in temp_battle %}
+            <h5><p class="rounded-c shadow-box"><em>{{ names["player_name"] }}</em> fighting as <b>{{ names.character_name }}</b> </p></h5>
+            <br>
+            <div class="rounded-c card-main2">
+              <div class="card-inner rounded-c" style="">
+                <div class="card-front" >
+                  <img src="{{ url_for('static', filename='images/'+ names.character_image_url) }}" class="d-block img1 100-w rounded-c" id="{{names.id}}" alt={{names.character_name}}>
+                </div>
+                <div class="card-back rounded-c">
+                    <p><br><br><br><em>Hit Points:</em></p>
+                    <p>{{ names["character_hit_points"] }}</p>
+                    <p><em>Armour Class:</em></p>
+                    <p>{{names["character_ac"] }}</p>
+                    <p><em>Attack Modifier:</em></p>
+                    <p>{{ names["character_attack_mod"] }}</p>
+                    <p><em>Damage Modifier:</em></p>
+                    <p>{{ names["character_damage_mod"] }}</p>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+        <div class="col-md-12" style="float:left; width:20%; padding: 20px;">
+            <div>
+              <div>
+                <!--find a way to gate use until the customer has selected their monster - maybe java button listener to have it pop up once the above button is pressed-->
+                <br><br><br><br><br><br><br><br><br><br>
+                <div>
+                  <form action="/monster_choice" method="GET">
+                    <button type="submit" style=" align-items: center;justify-content: center; height: 45px;"> READY TO BATTLE</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+        </div>
+        <div class="col-md-18" style="float:right; width:40%; padding-right: 70px; padding-left: 70px;">
+          <div class="container-fluid">
+            {% for name in temp_battle %}
+            <h5><p class="rounded-c shadow-box">{{ name.monster_name }} </p></h5>
+            <br>
+            <div class="rounded-c card-main2">
+              <div class="card-inner rounded-c" style="">
+                <div class="card-front" >
+                  <img src="{{ url_for('static', filename='images/'+ name.monster_image_url) }}" class="d-block img1 w-100 rounded-c" id="{{name.id}}" alt={{name.monster_name}}>
+                </div>
+                <div class="card-back rounded-c">
+                    <p><br><br><br><em>Hit Points:</em></p>
+                    <p>{{ name["monster_hit_points"] }}</p>
+                    <p><em>Armour Class:</em></p>
+                    <p>{{ name["monster_ac"] }}</p>
+                    <p><em>Attack Modifier:</em></p>
+                    <p>{{ name["monster_attack_mod"] }}</p>
+                    <p><em>Damage Modifier:</em></p>
+                    <p>{{ name["monster_damage_mod"] }}</p>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

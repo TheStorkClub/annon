@@ -1,0 +1,162 @@
+.body-background1{
+    background-image: url("images/dungeon1.jpeg");
+    background-position: top center;
+    background-color: black;
+    background-repeat: no-repeat;
+    background-size: auto;
+
+}
+.body-bg-monster{
+    background-image: url("images/monster_background1.jpg");
+    background-position: top center;
+    background-color: black;
+    background-repeat: no-repeat;
+    background-size: 150%;
+
+}
+.body-bg-history{
+    background-image: url("images/history2.jpg");
+    background-position: center top ;
+    background-color: black;
+    background-repeat: no-repeat;
+    background-size: auto 300%;
+}
+.body-bg-character{
+    background-image: url("images/character_select.jpeg");
+    background-position: top center;
+    background-color: black;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+.body-bg-battle{
+    background-image: url("images/battle-ground.jpeg");
+    background-position: top center;
+    background-color: black;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+.log-reg-upd-bg{
+    background-image: url("images/dndbck.jpg");
+    background-color: black;
+    background-repeat: no-repeat;
+    background-size: auto 300%;
+}
+.apologies{
+    background-image: url("images/crimescn.jpeg");
+    background-position: center;
+    background-color: black;
+    background-repeat: repeat;
+    background-size: auto 120%;
+}
+
+.body{
+
+}
+.navbar{
+    background-image: url("images/old-paper-texture.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    filter: brightness(130%);
+}
+.invert{
+    filter: invert(100%);
+}
+.shadow-box{
+    background-color: #000;
+    color: white;
+    opacity: .7;
+    padding: 15px;
+    filter: brightness(180%);
+}
+.shadow-box1{
+    background-color: #000;
+    color: white;
+    opacity: .6;
+    padding: 15px;
+    filter: brightness(100%);
+}
+.rounded-c{
+    border-radius: 25px;
+}
+.h1{
+    color: ivory;
+}
+.card-main {
+    position: relative;
+    width: 250px;
+    height: 380px;
+    padding-right:50px;
+    border: 1px;
+    display: inline-block;
+}
+.card-main2 {
+    position: relative;
+    width: 350px;
+    height: 450px;
+    padding-right:50px;
+    border: 1px;
+    display: inline-block;
+}
+.card-inner {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 1.8s;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.card-inner:hover{
+    transform: rotateY(180deg);
+}
+
+.card-front{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    background-color: transparent;
+
+}
+.card-back{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    color:white;
+    backface-visibility: hidden;
+    transform: rotateY(180deg);
+    background-color: black;
+    text-align: center;
+    padding-left:20px;
+    padding-right:20px;
+    border: 3px solid white;
+
+}
+.p1{
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: center;
+    display: block;
+    margin-top: 0.4em;
+    margin-bottom: 0.4em;
+    margin-left: 0;
+    margin-right: 0;
+
+}
+.img1 {
+
+    width: 350px;
+    height: 450px;
+    object-fit: cover;
+    border: 3px solid white;
+}
+
+.img {
+    width: 250px;
+    height: 380px;
+    object-fit: cover;
+    border: 3px solid white;
+}

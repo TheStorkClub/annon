@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Fightable Monsters
+{% endblock %}
+
+{% block main %}
+<body class="body-bg-monster"></body>
+  <div class="container-fluid">
+    {% for monsters in monster %}
+    <div class="rounded-c card-main" style="">
+      <div class="card-inner rounded-c" style="">
+        <div class="card-front">
+          <img src="{{ url_for('static', filename='images/'+ monsters.image_url) }}" class="d-block img w-100 rounded-c" id="{{monsters.id}}"   alt={{monsters.name}}>
+        </div>
+        <div class="card-back rounded-c">
+            <p class="p1"><br><em>Monster's name</em></p>
+            <p class="p1">{{ monsters["name"] }}</p>
+            <p class="p1"><em>Hit Points</em></p>
+            <p class="p1">{{ monsters["hit_points"] }}</p>
+            <p class="p1"><em>Armour Class</em></p>
+            <p class="p1">{{ monsters["ac"] }}</p>
+            <p class="p1"><em>Attack Modifier</em></p>
+            <p class="p1">{{ monsters["attack_mod"] }}</p>
+            <p class="p1"><em>Damage Modifier</em></p>
+            <p class="p1">{{ monsters["damage_mod"] }}</p>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+ </div>
+  {% endblock %}
+

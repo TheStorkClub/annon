@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+{% block main %}
+<body class="body-background1">
+    <div class="container-fluid shadow-box rounded-c">
+        <!-- add background to the page and what its about - can add background in stone tile - maybe some gif sconts - button to battle page button to History page -->
+        <h1 style="font-color: white;"> Welcome to D20Dungeon Madness</h1>
+        <br><br>
+        <p><em>{{player_name}}</em> has just awoke in a dark damp stone corridor filled with rubble, cobwebs and the skeletal remains of what appears to be many warriors.</p>
+        <p> The only light that illuminates their path is a small flame torch. Down the corridor they hear the movement of somthing... something coming toward them!</p>
+        <p> Prepare yourself for battle </p>
+        <form action="/character_choice" method="GET">
+            <div class="mb-3">
+                <button style="active" type="submit"> BATTLE </button>
+            </div>
+        </form>
+        <p>Look through the bodies and see the history of defeats </p>
+        <form action="/history" method="GET">
+            <div class="mb-3">
+                <button type="submit"> BATTLE HISTORY </button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

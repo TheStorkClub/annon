@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Playable Characters
+{% endblock %}
+
+{% block main %}
+<body class="body-bg-monster"></body>
+<div class="container-fluid">
+  {% for monsters in monsters %}
+  <div class="rounded-c card-main">
+    <div class="card-inner rounded-c" style="">
+      <div class="card-front" >
+        <img src="{{ url_for('static', filename='images/'+ monsters.image_url) }}" class="d-block img 100-w rounded-c" id="{{monsters.id}}"   alt={{monsters.name}}>
+      </div>
+      <div class="card-back rounded-c">
+          <p class="p1"><br><em>Monster's Name:</em></p>
+          <p class="p1">{{ monsters["name"] }}</p>
+          <p class="p1"><em>Hit Points:</em></p>
+          <p class="p1">{{ monsters["hit_points"] }}</p>
+          <p class="p1"><em>Armour Class:</em></p>
+          <p class="p1">{{ monsters["ac"] }}</p>
+          <p class="p1"><em>Attack Modifier:</em></p>
+          <p class="p1">{{ monsters["attack_mod"] }}</p>
+          <p class="p1"><em>Damage Modifier:</em></p>
+          <p class="p1">{{ monsters["damage_mod"] }}</p>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+<br><br>
+<div class="rounded-c shadow-box">
+  <h1> What Monster will you be battling?</h1>
+  <form action="/monster_choice" method="POST">
+      <div class="mb-3">
+          <select name="monster_select">
+              {% for monsters in monsters %}
+              <option >{{ monsters["name"] }} </option>
+              {% endfor %}
+          </select>
+      </div>
+      <button type="submit">That be the pretty beast!</button>
+  </form>
+</div>
+
+  {% endblock %}
+

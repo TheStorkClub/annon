@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    The history of battles and bloodshed by {{ player_name }}
+{% endblock %}
+{% block main %}
+<body class="body-bg-history"></body>
+<div class="container-fluid">
+    <table class="table shadow-box1">
+        <thead>
+            <tr>
+                <th class="h5">Battle ID</th>
+                <th class="h5">Player Name</th>
+                <th class="h5">Character </th>
+                <th class="h5"> Damage dealt by: {{ player_name }}  </th>
+                <th class="h5">Monster </th>
+                <th class="h5"> Damage dealt by Monsters </th>
+                <th class="h5"> Winner </th>
+                <th class="h5"> Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for battle_history in battle_history %}
+                <tr>
+                    <td scope="row">{{ battle_history["battle_id"] }} </td>
+                    <td>{{ battle_history["player_name"] }} </td>
+                    <td>{{ battle_history["character_name"] }} </td>
+                    <td>{{ battle_history["player_damage"] }}</td>
+                    <td>{{ battle_history["monster_name"] }} </td>
+                    <td>{{ battle_history["monster_damage"] }}</td>
+                    <td>{{ battle_history["winner"] }} </td>
+                    <td>{{ battle_history["date"] }} </td>
+                </tr>
+            {% endfor %}
+    </tbody>
+    </table>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,84 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Battle ground
+{% endblock %}
+{% block main %}
+<body class="body-bg-battle"></body>
+<div >
+    <div>
+        <div class="col-md-4" style="float:left; width:32.5%; padding-right: 70px; padding-left: 70px;">
+            <div class="container-fluid">
+                {% for names in temp_battle %}
+                <h5><p class="rounded-c shadow-box"><em>{{ names["player_name"] }}</em> fighting as <b>{{ names.character_name }}</b> </p></h5>
+                <div class="rounded-c card-main2">
+                    <div class="card-inner rounded-c" style="">
+                        <div class="card-front">
+                        <img src="{{ url_for('static', filename='images/'+ names.character_image_url) }}" class="d-block img1 100-w rounded-c" id="{{names.id}}" alt={{names.character_name}}>
+                        </div>
+                        <div class="card-back rounded-c">
+                            <p><br><br><br><em>Hit Points:</em></p>
+                            <p>{{ names["character_hit_points"] }}</p>
+                            <p><em>Armour Class:</em></p>
+                            <p>{{names["character_ac"] }}</p>
+                            <p><em>Attack Modifier:</em></p>
+                            <p>{{ names["character_attack_mod"] }}</p>
+                            <p><em>Damage Modifier:</em></p>
+                            <p>{{ names["character_damage_mod"] }}</p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="col-md-12" style="float:left; width:35%;">
+            <br><br><br><br><br><br>
+            <div class="rounded-c shadow-box">
+                <br>
+        {% for rolls in temp_battle %}
+            <h5>{{rolls.player_name}} <em>rolled</em>  {{rolls.player_roll}}</h5>
+            <p> </p>
+            <h5>Total damage to {{rolls.monster_name}} {{rolls["player_damage_dealt"]}}</h5>
+            <br>
+            <h5>{{rolls.monster_name}} <em>rolled</em> {{rolls.monster_roll}}</h5>
+            <p> </p>
+            <h5> Total damage to {{rolls.player_name}} {{rolls["monster_damage_dealt"]}}</h5>
+        {% endfor %}
+             <br>
+            </div>
+        <br><br>
+                <form  action="/battle_ground" method="POST" name="roll">
+                    <button class="" type="submit" name="roll"> Roll! </button>
+                </form>
+        </div>
+        <div class="col-md-18" style="float:right; width:32.5%; padding-right: 70px; padding-left: 70px;">
+            <div class="container-fluid">
+                {% for name in temp_battle %}
+                <h5><p class="rounded-c shadow-box">{{ name.monster_name }} </p></h5>
+                <br>
+                <div class="rounded-c card-main2">
+                    <div class="card-inner rounded-c" style="">
+                        <div class="card-front" >
+                        <img src="{{ url_for('static', filename='images/'+ name.monster_image_url) }}" class="d-block img1 100-w rounded-c" id="{{name.id}}" alt={{name.monster_name}}>
+                        </div>
+                        <div class="card-back rounded-c">
+                            <p><br><br><br><em>Hit Points:</em></p>
+                            <p>{{ name["monster_hit_points"] }}</p>
+                            <p><em>Armour Class:</em></p>
+                            <p>{{ name["monster_ac"] }}</p>
+                            <p><em>Attack Modifier:</em></p>
+                            <p>{{ name["monster_attack_mod"] }}</p>
+                            <p><em>Damage Modifier:</em></p>
+                            <p>{{ name["monster_damage_mod"] }}</p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+<div style="float: left; width: 100%; justify-content: center;">
+
+</div>
+{% endblock %}

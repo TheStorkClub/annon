@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Apology
+{% endblock %}
+
+{% block main %}
+<body class="apologies">
+    <!-- https://memegen.link/ -->
+    <img alt="{{ top }}" class="border img-fluid rounded-c" src="http://memegen.link/custom/{{ top | urlencode }}/{{ bottom | urlencode }}.jpg?alt=https://i.imgur.com/CsCgN7Ll.png&width=400" title="{{ top }}">
+</body>
+{% endblock %}

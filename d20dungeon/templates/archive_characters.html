@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Playable Characters
+{% endblock %}
+
+{% block main %}
+<div id="character_carousel" class="carousel carousel-dark slide px-auto" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        <div>
+          {% for characters in characters %}
+            <div>
+                <div class="carousel-item active ml-auto" style="width: 400px;" data-bs-interval="10000" >
+                    <img src="{{ url_for('static', filename='images/'+ characters.image_url) }}" class="d-block w-100 rounded-c" id="{{characters.id}}"   alt={{characters.name}}>
+                    <div class=" active mr-auto">
+                        <h5 class="col-12 " style="padding-top:50px">Character's name </h2>
+                        <p class="col-12">{{ characters["name"] }}</p>
+                        <h5 class="col-12">Description</h2>
+                        <p class="col-12">{{ characters["description"]}}</p>
+                        <h5 class="col-12">Hit Points</h2>
+                        <p class="col-12">{{ characters["hit_points"] }}</p>
+                        <h5 class="col-12">Armour Class</h2>
+                        <p class="col-12">{{ characters["ac"] }}</p>
+                        <h5 class="col-12">Attack Modifier</h2>
+                        <p class="col-12">{{ characters["attack_mod"] }}</p>
+                        <h5 class="col-12">Damage Modifier</h2>
+                        <p class="col-12">{{ characters["damage_mod"] }}</p>
+                    </div>
+                </div>
+            </div>
+          {% endfor %}
+        </div>
+<!-- left and right buttons  -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#character_carousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#character_carousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  <div>
+</div>
+  {% endblock %}
+

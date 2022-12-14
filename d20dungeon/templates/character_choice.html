@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Chose your character
+{% endblock %}
+
+{% block main %}
+<body class="body-bg-character"></body>
+<div class="container-fluid">
+  {% for characters in characters %}
+  <div class="rounded-c card-main">
+    <div class="card-inner rounded-c" style="">
+      <div class="card-front" >
+        <img src="{{ url_for('static', filename='images/'+ characters.image_url) }}" class="d-block 100-w img rounded-c" id="{{characters.id}}"   alt={{characters.name}}>
+      </div>
+      <div class="card-back rounded-c">
+          <p class="p1"><br><em>Character's Name:</em></p>
+          <p class="p1">{{ characters["name"] }}</p>
+          <p class="p1"><em>Hit Points:</em></p>
+          <p class="p1">{{ characters["hit_points"] }}</p>
+          <p class="p1"><em>Armour Class:</em></p>
+          <p class="p1">{{ characters["ac"] }}</p>
+          <p class="p1"><em>Attack Modifier:</em></p>
+          <p class="p1">{{ characters["attack_mod"] }}</p>
+          <p class="p1"><em>Damage Modifier:</em></p>
+          <p class="p1">{{ characters["damage_mod"] }}</p>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+<br><br>
+<div style="justify:center; align:bottom; " class="shadow-box rounded-c">
+    <h1> What Character would you like to be?</h1>
+    <form action="/character_choice" method="POST">
+        <div class="mb-3">
+            <select name="character_select">
+                {% for character in characters %}
+                <option >{{ character["name"] }}</option>
+                {% endfor %}
+            </select>
+        </div>
+          <button type="submit">To Arms!</button>
+    </form>
+</div>
+  {% endblock %}
+
